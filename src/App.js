@@ -14,7 +14,7 @@ const App = () => {
 
   const getGuides = () => {
     axios
-      .get('http://localhost:8000/api/characters')
+      .get('http://localhost:8000/api/guides')
       .then(
         (response) => setGuides(response.data),
         (err) => console.error(err)
@@ -28,7 +28,7 @@ const App = () => {
 
    const handleCreate = (addGuide) => {
     axios
-      .post('http://localhost:8000/api/characters', addGuide)
+      .post('http://localhost:8000/api/guides', addGuide)
       .then((response) => {
         console.log(response)
         getGuides()
@@ -36,7 +36,7 @@ const App = () => {
   }
   const handleDelete = (event) => {
     axios
-      .delete('http://localhost:8000/api/characters/' + event.target.value)
+      .delete('http://localhost:8000/api/guides/' + event.target.value)
       .then((response) => {
         getGuides()
       })
@@ -45,7 +45,7 @@ const App = () => {
   const handleUpdate = (editGuide) => {
     console.log(editGuide)
     axios
-      .put('http://localhost:8000/api/characters/' + editGuide.id, editGuide)
+      .put('http://localhost:8000/api/guides/' + editGuide.id, editGuide)
       .then((response) => {
         getGuides()
       })
