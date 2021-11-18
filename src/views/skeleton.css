@@ -400,10 +400,7 @@ near the relevant code. For example, if you wanted to change the styles for butt
 on small devices, paste the mobile query code up in the buttons section and style it
 there.
 */
-.people{
-  border: 2px solid black;
-  margin-left:3px;
-}
+
 
 /* Larger than mobile */
 @media (min-width: 400px) {}

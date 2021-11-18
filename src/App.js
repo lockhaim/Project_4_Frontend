@@ -4,8 +4,10 @@ import Add from './components/add'
 import Edit from './components/edit'
 import Header from './components/header'
 import Footer from './components/footer'
+import TutorialCard from './components/tutorialCard'
 import './views/normalize.css'
 import './views/skeleton.css'
+import './views/styles.css'
 
 const App = () => {
 
@@ -14,7 +16,8 @@ const App = () => {
 
   const getGuides = () => {
     axios
-      .get('http://localhost:8000/api/guides')
+      .get('http://localhost:8000/api/guides') 
+      // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then(
         (response) => setGuides(response.data),
         (err) => console.error(err)
@@ -29,6 +32,7 @@ const App = () => {
    const handleCreate = (addGuide) => {
     axios
       .post('http://localhost:8000/api/guides', addGuide)
+      // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then((response) => {
         console.log(response)
         getGuides()
@@ -37,6 +41,7 @@ const App = () => {
   const handleDelete = (event) => {
     axios
       .delete('http://localhost:8000/api/guides/' + event.target.value)
+      // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then((response) => {
         getGuides()
       })
@@ -46,6 +51,7 @@ const App = () => {
     console.log(editGuide)
     axios
       .put('http://localhost:8000/api/guides/' + editGuide.id, editGuide)
+      // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then((response) => {
         getGuides()
       })
@@ -61,12 +67,9 @@ const App = () => {
     {guides.map((guide) => {
       return (
      <div className="person" key={guide.id}>
-       <h4>Name: {guide.name}</h4>
-       <h5>author_id: {guide.author_id}</h5>
-       <h5>likes: {guide.likes}</h5>
-       <h5>content: {guide.content}</h5>
-       <h5>image: {guide.image}</h5>
-       <h5>rating: {guide.rating}</h5>
+     <Header  />
+     <TutorialCard guide={guide} />
+       
 
        <Edit handleUpdate={handleUpdate} id={guide.id}/>
        <button onClick={handleDelete} value={guide.id}>
