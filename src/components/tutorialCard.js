@@ -13,10 +13,10 @@ const TutorialCard = (props) => {
         <h5>author_id: {guide.author_id}</h5>
         <h5>likes: {guide.likes}</h5>
         <h5>content: {guide.content}</h5>
-        <h5>image: {guide.image}</h5>
+        <img src = {guide.image} alt={guide.name} />
         <h5>rating: {guide.rating}</h5>
- 
-       
+
+
       </div>
     );
   }
