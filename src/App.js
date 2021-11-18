@@ -12,7 +12,7 @@ import './views/styles.css'
 const App = () => {
 
   let [guides, setGuides] = useState([])
-  
+
 
   const getGuides = () => {
     axios
@@ -24,7 +24,7 @@ const App = () => {
       )
       .catch((error) => console.error(error))
    }
-   
+
    useEffect(() => {
     getGuides()
    }, [])
@@ -58,12 +58,12 @@ const App = () => {
   }
 
   return (
-    
-    <>
+
+    <div className='main'>
     <Header />
     <Add handleCreate={handleCreate}/>
       <div className="people">
-      
+
     {guides.map((guide) => {
       return (
      <div className="person" key={guide.id}>
@@ -80,7 +80,7 @@ const App = () => {
  })}
  <Footer />
 </div>
-    </>
+    </div>
   )
 }
 
