@@ -1,5 +1,6 @@
 const footer = () => {
     return(
+      <div>
         <div className='footer-flex-container'>
             <div className='project-techs'>
                 <i class="fab fa-python fa-2x"></i>
@@ -27,6 +28,7 @@ const footer = () => {
                 </div>
             </div>
         </div>
+      </div>
     );
   }
   export default footer
