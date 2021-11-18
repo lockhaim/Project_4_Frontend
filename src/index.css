@@ -56,11 +56,32 @@ a:active, a:hover {
     width: 100%;
 }
 
+.footer-flex-container {
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    align-items: baseline;
+    position: absolute;
+
+    bottom:0;
+    height: 3vmax;
+}
+
+.our-links {
+    display: flex;
+    flex-direction:row;
+
+}
+
 .login-links {
     justify-content: flex-end;
 }
 
-
+.flex-link {
+    display: flex;
+    align-items: baseline;
+    margin: 10px;
+}
 
 .login-button {
     position: fixed;

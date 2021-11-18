@@ -16,7 +16,7 @@ const App = () => {
 
   const getGuides = () => {
     axios
-      .get('http://localhost:8000/api/guides') 
+      .get('http://localhost:8000/api/guides')
       // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then(
         (response) => setGuides(response.data),
@@ -69,7 +69,7 @@ const App = () => {
      <div className="person" key={guide.id}>
      <Header  />
      <TutorialCard guide={guide} />
-       
+
 
        <Edit handleUpdate={handleUpdate} id={guide.id}/>
        <button onClick={handleDelete} value={guide.id}>
@@ -78,10 +78,10 @@ const App = () => {
      </div>
    )
  })}
- <Footer />
-</div>
+
     </div>
-  )
-}
+<Footer />
+</div>
+)}
 
 export default App
