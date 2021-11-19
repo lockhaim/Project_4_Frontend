@@ -21,9 +21,11 @@ const TutorialCard = (props) => {
 
         <h5>image: {guide.image}</h5>
 
+        {/* <img src={guide.image} /> */}
+
         <Edit handleUpdate={handleUpdate} id={guide.id}/>
-       <button onClick={handleDelete} value={guide.id}>
-                X
+       <button id='sub-button3' onClick={handleDelete} value={guide.id}>
+                DELETE
               </button>
 
       </div>

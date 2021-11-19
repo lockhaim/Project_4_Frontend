@@ -70,7 +70,6 @@ const App = () => {
         })
   }
 
-
    return (
       <div className='main'>
          <Header handleLogout={handleLogout}/>

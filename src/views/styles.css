@@ -9,11 +9,15 @@
 
 .person{
     border: 2px solid black;
-    margin-left:3px;
+    margin:5px;
     display:flex;
     flex-direction: column;
-    padding: 50px;
-  }
-  .addForm{
-      text-align: center;
-  }
+    padding: 1vmax;
+    border-radius: 10px;
+    background-color: #80ff80;
+}
+
+.addForm{
+    text-align: flex-start;
+}
+

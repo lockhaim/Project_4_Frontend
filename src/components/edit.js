@@ -7,7 +7,7 @@ const Edit = (props) => {
   const handleChange = (event) => {
     setGuide({ ...guide, [event.target.name]: event.target.value })
   }
-  
+
   const handleSubmit = (event) => {
     event.preventDefault()
     props.handleUpdate(guide)
@@ -63,10 +63,10 @@ const Edit = (props) => {
             onChange={handleChange}
             value={guide.rating}
           />
-      
+
           <br />
           <br />
-          <input type="submit" />
+          <input id='sub-button2' type="submit" />
         </form>
       </details>
     </>
