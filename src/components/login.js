@@ -31,7 +31,7 @@ const Login = (props) => {
          <h1>Login</h1>
          <form onSubmit={handleSubmit}>
             <input type="text" onChange={handleUserChange}/>
-            <input type="text" onChange={handlePasswordChange}/>
+            <input type="password" onChange={handlePasswordChange}/>
             <input type="submit"/>
          </form>
       </div>

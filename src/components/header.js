@@ -1,4 +1,4 @@
-const header = () => {
+const header = (props) => {
   return(
     <div className='nav'>
         <nav className='navbar'>
@@ -23,6 +23,9 @@ const header = () => {
                 </div>
                 <div className='register-button'>
                     <a className='nav-button' href='#'>Register</a>
+                </div>
+                <div className='logout-button'>
+                    <button className='nav-button' onClick={props.handleLogout}>Logout</button>
                 </div>
             </div>
             <div className='login-links'>
