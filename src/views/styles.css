@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+.people{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.person{
+    border: 2px solid black;
+    margin-left:3px;
+    display:flex;
+    flex-direction: column;
+    padding: 50px;
+  }
+  .addForm{
+      text-align: center;
+  }
+=======
+>>>>>>> 5ac7dd3e295ec17efac0b3bef4067720fc68f5ef

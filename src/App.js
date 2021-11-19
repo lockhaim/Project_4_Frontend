@@ -67,14 +67,11 @@ const App = () => {
     {guides.map((guide) => {
       return (
      <div className="person" key={guide.id}>
-     <Header  />
-     <TutorialCard guide={guide} />
+     
+     <TutorialCard guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+       
 
-
-       <Edit handleUpdate={handleUpdate} id={guide.id}/>
-       <button onClick={handleDelete} value={guide.id}>
-                X
-              </button>
+       
      </div>
    )
  })}
