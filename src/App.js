@@ -62,7 +62,7 @@ const App = () => {
      // userObject = window.localStorage.getItem('user')
      let userObject = {name:'Lorens', password:'123', online:true}
      axios
-        .put('http://localhost:8000/api/user/login', userObject)
+        .put('https://lazy-dev-project-backend.herokuapp.com/api/guides', userObject)
         .then((response) => {
            setUser({})
            window.localStorage.setItem('user', null)
