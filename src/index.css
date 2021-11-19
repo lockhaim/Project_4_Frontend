@@ -56,11 +56,31 @@ a:active, a:hover {
     width: 100%;
 }
 
+.footer-flex-container {
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    align-items: baseline;
+    bottom:auto;
+    height: 3vmax;
+    background-color: green;
+}
+
+.our-links {
+    display: flex;
+    flex-direction:row;
+
+}
+
 .login-links {
     justify-content: flex-end;
 }
 
-
+.flex-link {
+    display: flex;
+    align-items: baseline;
+    margin: 10px;
+}
 
 .login-button {
     position: fixed;
@@ -83,4 +103,10 @@ a:active, a:hover {
 
 .nav-button:hover {
     color: green;
+}
+
+.footer-link:hover {
+    background-color: green;
+    color: black;
+
 }
