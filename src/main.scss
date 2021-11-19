@@ -1,9 +1,9 @@
-$primary: green;
+$primary: lime;
 $primary-light: #00FF7F;
 $primary-dark: #006400;
 
 $accent:  #2E8B57;
-$accent-light:  #20B2AA;
+$accent-light:  #93ece7;
 $accent-dark:  #8FBC8F;
 
 img {
@@ -51,7 +51,7 @@ div {
 
 .navbar {
     display: flex;
-    background: green;
+    background: $primary;
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
@@ -60,10 +60,11 @@ div {
     position: fixed;
     top: 0;
     width: 100%;
+    border-bottom: 2px solid $primary-dark;
 }
 .navbar-container {
     display: flex;
-    background: green;
+    background: #00ff00;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
@@ -72,6 +73,7 @@ div {
     position: fixed;
     top: 0;
     width: 100%;
+
 }
 
 .footer-flex-container {
@@ -81,13 +83,14 @@ div {
     align-items: baseline;
     bottom:auto;
     height: 3vmax;
-    background-color: green;
+    background-color: $primary;
 }
 
 .our-links {
     display: flex;
     flex-direction:row;
     background-color: $primary;
+    font-weight: bold;
 }
 
 .login-links {
@@ -125,16 +128,36 @@ div {
 
 .nav-button:hover {
     color: white;
-}
-
-.footer-link:hover {
-    background-color: green;
-    color: black;
+    background-color: black;
 
 }
 
 #sub-button {
-    background-color: green;
-    color: white;
+    background-color: $primary;
+    color: black;
     border-color: black;
+}
+
+#sub-button:hover {
+    background-color: $accent-light;
+}
+
+#sub-button2 {
+    background-color: $primary;
+    color: black;
+    border-color: black;
+}
+
+#sub-button2:hover {
+    background-color: $accent-light;
+}
+
+#sub-button3 {
+    background-color: $primary;
+    color: black;
+    border-color: black;
+}
+
+#sub-button3:hover {
+    background-color: $accent-light;
 }

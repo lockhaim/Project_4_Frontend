@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .people{
     display: flex;
     flex-direction: row;
@@ -9,13 +9,14 @@
 
 .person{
     border: 2px solid black;
-    margin-left:3px;
+    margin:5px;
     display:flex;
     flex-direction: column;
-    padding: 50px;
-  }
-  .addForm{
-      text-align: center;
-  }
-=======
->>>>>>> 5ac7dd3e295ec17efac0b3bef4067720fc68f5ef
+    padding: 1vmax;
+    border-radius: 10px;
+    background-color: #80ff80;
+}
+
+.addForm{
+    text-align: flex-start;
+}
