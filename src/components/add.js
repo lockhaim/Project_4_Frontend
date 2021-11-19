@@ -1,37 +1,53 @@
 import React, { useState, useEffect } from 'react'
 
 const Add = (props) => {
-    let emptyGuide = { name: '', author_id: '', likes:'', content:'', image: '', rating: '' }
-  const [guide, setGuide] = useState(emptyGuide)
+   let emptyGuide = { name: '', author_id: '', likes:'', content:'', rating: '' }
+   const [guide, setGuide] = useState(emptyGuide)
 
-  const handleChange = (event) => {
+   const [selectedFile, setSelectedFile] = useState(null)
+   const [ name, setName ]= useState('')
+   const [ author, setAuthor ]= useState('')
+   const [ likes, setLikes ]= useState(0)
+   const [ content, setContent ]= useState('')
+   const [ rating, setRating ]= useState(0)
+
+   const handleChange = (event) => {
     setGuide({ ...guide, [event.target.name]: event.target.value })
-  }
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    props.handleCreate(guide)
-    setGuide({ name: '', author_id: '', likes:'', content:'', image: '', rating: '' })
-  }
+   }
 
-  return (
-    <div className='addForm'>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name: </label>
-        <input
+    const formData = new FormData()
+    formData.append("file", selectedFile);
+    // formData.append("name", name)
+    // formData.append("author_id", author)
+    // formData.append("likes", likes)
+    // formData.append("content", content)
+    // formData.append("raing", rating)
+
+
+   const handleSubmit = (event) => {
+    event.preventDefault()
+    props.handleCreate(formData)
+   }
+
+   return (
+      <div className='addForm'>
+         <form onSubmit={handleSubmit} method="POST" enctype="multipart/form-data">
+         <label htmlFor="name">Name: </label>
+         <input
           type="text"
           name="name"
           onChange={handleChange}
           value={guide.name}
-        />
-        <br />
-        <br />
-        <label htmlFor="author_id ">author_id : </label>
-        <input
-          type="number"
-          name="author_id"
-          onChange={handleChange}
-          value={guide.author_id}
-        />
+          />
+         <br />
+         <br />
+         <label htmlFor="author_id ">author_id : </label>
+         <input
+            type="number"
+            name="author_id"
+            onChange={handleChange}
+            value={guide.author_id}
+         />
         <label htmlFor="main_power">likes: </label>
           <input
             type="text"
@@ -48,9 +64,9 @@ const Add = (props) => {
           />
           <label htmlFor="image">image: </label>
           <input
-            type="text"
+            type="file"
             name="image"
-            onChange={handleChange}
+            onChange={(event) => setSelectedFile(event.target.files[0])}
             value={guide.image}
           />
           <label htmlFor="rating">rating: </label>
