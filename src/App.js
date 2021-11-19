@@ -8,11 +8,12 @@ import TutorialCard from './components/tutorialCard'
 import './views/normalize.css'
 import './views/skeleton.css'
 import './views/styles.css'
+import Login from './components/login.js'
 
 const App = () => {
 
   let [guides, setGuides] = useState([])
-
+  const [user, setUser] = useState({})
 
   const getGuides = () => {
     axios
@@ -57,28 +58,34 @@ const App = () => {
       })
   }
 
-  return (
+  const handleLogout = () => {
+     // userObject = window.localStorage.getItem('user')
+     let userObject = {name:'Lorens', password:'123', online:true}
+     axios
+        .put('http://localhost:8000/api/user/login', userObject)
+        .then((response) => {
+           setUser({})
+           window.localStorage.setItem('user', null)
+           console.log(response.data);
+        })
+  }
 
-    <div className='main'>
-    <Header />
-    <Add handleCreate={handleCreate}/>
-      <div className="people">
-
-    {guides.map((guide) => {
-      return (
-     <div>
-
-     <TutorialCard guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
-
-
-
-     </div>
+   return (
+      <div className='main'>
+         <Header handleLogout={handleLogout}/>
+         <Login setUser={setUser}/>
+         <Add handleCreate={handleCreate}/>
+         <div className="people">
+            {guides.map((guide) => {
+               return (
+                  <div className="person" key={guide.id}>
+                  <TutorialCard guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+                  </div>
+               )
+            })}
+         </div>
+      </div>
    )
- })}
-
-    </div>
-<Footer />
-</div>
-)}
+}
 
 export default App
