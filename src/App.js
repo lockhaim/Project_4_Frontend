@@ -8,6 +8,7 @@ import TutorialCard from './components/tutorialCard'
 import './views/normalize.css'
 import './views/skeleton.css'
 import './views/styles.css'
+import Login from './components/login.js'
 
 const App = () => {
 
@@ -57,31 +58,25 @@ const App = () => {
       })
   }
 
-  return (
-
-    <div className='main'>
-    <Header />
-    <Add handleCreate={handleCreate}/>
+   return (
+      <div className='main'>
+      <Header />
+      <Login />
+      <Add handleCreate={handleCreate}/>
       <div className="people">
-
-    {guides.map((guide) => {
-      return (
-     <div className="person" key={guide.id}>
-     <Header  />
-     <TutorialCard guide={guide} />
-
-
-       <Edit handleUpdate={handleUpdate} id={guide.id}/>
-       <button onClick={handleDelete} value={guide.id}>
-                X
-              </button>
-     </div>
+         {guides.map((guide) => {
+            return (
+            <div className="person" key={guide.id}>
+               <TutorialCard guide={guide} />
+               <Edit handleUpdate={handleUpdate} id={guide.id}/>
+               <button onClick={handleDelete} value={guide.id}>X</button>
+            </div>
+            )
+         })}
+      </div>
+      <Footer />
+      </div>
    )
- })}
-
-    </div>
-<Footer />
-</div>
-)}
+}
 
 export default App
