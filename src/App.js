@@ -64,18 +64,16 @@ const App = () => {
       <Login />
       <Add handleCreate={handleCreate}/>
       <div className="people">
-         {guides.map((guide) => {
-            return (
-            <div className="person" key={guide.id}>
-               <TutorialCard guide={guide} />
-               <Edit handleUpdate={handleUpdate} id={guide.id}/>
-               <button onClick={handleDelete} value={guide.id}>X</button>
-            </div>
-            )
-         })}
-      </div>
-      <Footer />
-      </div>
+
+    {guides.map((guide) => {
+      return (
+     <div className="person" key={guide.id}>
+
+     <TutorialCard guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+
+
+
+     </div>
    )
 }
 

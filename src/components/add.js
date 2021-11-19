@@ -60,7 +60,8 @@ const Add = (props) => {
             onChange={handleChange}
             value={guide.rating}
           />
-        <input type="submit" />
+          <br/>
+        <input id='sub-button' type="submit" />
       </form>
     </div>
   )

@@ -1,0 +1,140 @@
+$primary: green;
+$primary-light: #00FF7F;
+$primary-dark: #006400;
+
+$accent:  #2E8B57;
+$accent-light:  #20B2AA;
+$accent-dark:  #8FBC8F;
+
+img {
+    width:100px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $primary;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:link, a:visited, {
+    text-decoration: none;
+    color: black;
+}
+
+a:active, a:hover {
+    background-color: $primary-dark;
+    text-decoration: none;
+    color: white;
+}
+
+div {
+    background-color:  #99ff99;
+
+}
+
+.addForm {
+    margin-top: 2.7vmax;
+}
+
+.navbar {
+    display: flex;
+    background: green;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    color: black;
+    height: 2.5vmax;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.navbar-container {
+    display: flex;
+    background: green;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: black;
+    height: 2.5vmax;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.footer-flex-container {
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    align-items: baseline;
+    bottom:auto;
+    height: 3vmax;
+    background-color: green;
+}
+
+.our-links {
+    display: flex;
+    flex-direction:row;
+    background-color: $primary;
+}
+
+.login-links {
+    justify-content: flex-end;
+}
+
+.flex-link {
+    display: flex;
+    align-items: baseline;
+    margin: 10px;
+    background-color: $primary;
+
+
+}
+
+.login-button {
+    position: fixed;
+    right: 0;
+
+}
+
+.register-button {
+    position: fixed;
+    right: 4.25vmax;
+
+}
+.nav-button {
+    padding: 1vmin;
+    color: black;
+    border-right: 1px solid black;
+    font-size: 150%;
+    background-color: $primary;
+
+}
+
+.nav-button:hover {
+    color: white;
+}
+
+.footer-link:hover {
+    background-color: green;
+    color: black;
+
+}
+
+#sub-button {
+    background-color: green;
+    color: white;
+    border-color: black;
+}
