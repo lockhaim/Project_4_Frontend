@@ -61,10 +61,9 @@ a:active, a:hover {
     border: none;
     justify-content: space-between;
     align-items: baseline;
-    position: absolute;
-
-    bottom:0;
+    bottom:auto;
     height: 3vmax;
+    background-color: green;
 }
 
 .our-links {
@@ -104,4 +103,10 @@ a:active, a:hover {
 
 .nav-button:hover {
     color: green;
+}
+
+.footer-link:hover {
+    background-color: green;
+    color: black;
+
 }
