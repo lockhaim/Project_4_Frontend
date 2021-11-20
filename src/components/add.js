@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const Add = (props) => {
-    let emptyGuide = { name: '', author_id: '', likes:'', content:'', image: '', rating: '' }
+    let emptyGuide = { name: '', author: '', likes:'', content:'', image: '', rating: '' }
   const [guide, setGuide] = useState(emptyGuide)
 
   const handleChange = (event) => {
@@ -10,7 +10,7 @@ const Add = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     props.handleCreate(guide)
-    setGuide({ name: '', author_id: '', likes:'', content:'', image: '', rating: '' })
+    setGuide({ name: '', author: '', likes:'', content:'', image: '', rating: '' })
   }
 
   return (
@@ -25,12 +25,12 @@ const Add = (props) => {
         />
         <br />
         <br />
-        <label htmlFor="author_id ">author_id : </label>
+        <label htmlFor="author">author_id : </label>
         <input
           type="number"
-          name="author_id"
+          name="author"
           onChange={handleChange}
-          value={guide.author_id}
+          value={guide.author}
         />
         <label htmlFor="main_power">likes: </label>
           <input
