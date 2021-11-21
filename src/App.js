@@ -75,10 +75,10 @@ const App = () => {
          <Header handleLogout={handleLogout}/>
          <Login setUser={setUser}/>
          <Add handleCreate={handleCreate}/>
-         <div className="people">
+         <div className="guides">
             {guides.map((guide) => {
                return (
-                  <div className="person" key={guide.id}>
+                  <div className="guideOutline" key={guide.id}>
                   <TutorialCard guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
                   </div>
                )

@@ -41,6 +41,8 @@ const Add = (props) => {
           />
           <label htmlFor="content">content: </label>
           <input
+            id="contentForm"
+            contentEditable
             type="text"
             name="content"
             onChange={handleChange}
