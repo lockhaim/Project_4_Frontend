@@ -28,13 +28,16 @@ console.log(guide);
         />
         <br />
         <br />
-        
+
         <input
           type="hidden"
           name="author"
           onChange={handleChange}
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5ae8efc8762bae55c419dd6c0fbdad1df320dc6e
           placeholder={props.author_id}
           value={guide.author}
 
