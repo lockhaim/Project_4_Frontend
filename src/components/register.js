@@ -19,7 +19,7 @@ const Register = (props) => {
       event.preventDefault()
       const userObject = {name: username, password:password, online: true}
       axios
-      .post('https://lazy-dev-project-backend.herokuapp.com/api/user/register', userObject)
+      .post('http://localhost:8000/api/user/register', userObject)
       .then((response) => {
          //We want to log the user in after they sign up.
          props.setUser(response.data)

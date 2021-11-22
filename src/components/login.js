@@ -18,7 +18,7 @@ const Login = (props) => {
       event.preventDefault()
       const userObject = {name: username, password:password, online: true}
       axios
-      .put('https://lazy-dev-project-backend.herokuapp.com/api/user/login', userObject)
+      .put('http://localhost:8000/api/user/login', userObject)
       .then((response) => {
          props.setUser(response.data)
          window.localStorage.setItem('user', response.data)

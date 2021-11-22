@@ -29,7 +29,7 @@ console.log(guide);
         />
         <br />
         <br />
-        {/* <label htmlFor="author">author_id : </label> */}
+        
         <input
           type="hidden"
           name="author"
