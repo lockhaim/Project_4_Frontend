@@ -1,4 +1,13 @@
 const header = (props) => {
+
+   const showLogin=() => {
+      props.setShowLogin(true)
+   }
+
+   const showRegister=() => {
+      props.setShowRegister(true)
+   }
+
   return(
     <div className='nav'>
         <nav className='navbar'>
@@ -18,15 +27,24 @@ const header = (props) => {
                 <div className='extResLink'>
                     <a className='nav-button nav-button-5' href='#'>Resources</a>
                 </div>
-                <div className='login-button'>
-                    <a className='nav-button' href='#'>Login</a>
-                </div>
-                <div className='register-button'>
-                    <a className='nav-button' href='#'>Register</a>
-                </div>
-                <div className='logout-button'>
-                    <button className='nav-button' onClick={props.handleLogout}>Logout</button>
-                </div>
+
+                {props.user.name!=='guest' ?
+                   <div className='logout-button'>
+                      <button className='nav-button' onClick={props.handleLogout}>Logout</button>
+                 </div>
+                 :
+                    <>
+                       <div className='login-button'>
+                           <button className='nav-button' onClick={showLogin}>Login</button>
+                       </div>
+                       <div className='register-button'>
+                           <button className='nav-button' onClick={showRegister}>Register</button>
+                       </div>
+                    </>
+                }
+
+
+
             </div>
             <div className='login-links'>
 

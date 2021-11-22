@@ -24,16 +24,24 @@ const Login = (props) => {
          window.localStorage.setItem('user', response.data)
          console.log(response.data);
       })
+      closeLogin()
    }
+
+   const closeLogin = () => {
+      props.setShowLogin(false)
+  }
 
    return(
       <div className='login'>
-         <h1>Login</h1>
-         <form onSubmit={handleSubmit}>
-            <input type="text" onChange={handleUserChange}/>
-            <input type="password" onChange={handlePasswordChange}/>
-            <input type="submit"/>
-         </form>
+         <div className='loginForm'>
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+               <input type="text" onChange={handleUserChange}/>
+               <input type="password" onChange={handlePasswordChange}/>
+               <input type="submit"/>
+            </form>
+            <button className="modalClose" onClick={closeLogin}>Back</button>
+         </div>
       </div>
    )
 }

@@ -14,10 +14,10 @@ import Register from './components/register.js'
 const App = () => {
 
   let [guides, setGuides] = useState([])
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({name:'guest'})
 
-  const [ showLogin, setShowLogin ] = useState(False)
-  const [showRegister, setShowRegister ] = useState(False)
+  const [ showLogin, setShowLogin ] = useState(false)
+  const [showRegister, setShowRegister ] = useState(false)
 
   const getGuides = () => {
     axios
@@ -71,7 +71,7 @@ const App = () => {
 
            console.log(response.data);
         })
-      setUser({})
+      setUser({name:'guest'})
       window.localStorage.setItem('user', null)
   }
 
@@ -81,10 +81,18 @@ const App = () => {
 
    return (
       <div className='main'>
-         <Header handleLogout={handleLogout}/>
-         <Register setUser={setUser}/>
-         <Login setUser={setUser} setShowLogin={setShowLogin}/>
-         <Add handleCreate={handleCreate}/>
+         <Header handleLogout={handleLogout} setShowLogin={setShowLogin} setShowRegister={setShowRegister} user={user}/>
+         {showRegister?
+            <Register setUser={setUser} setShowRegister={setShowRegister}/>
+            :
+            null
+         }
+         {showLogin?
+            <Login setUser={setUser} setShowLogin={setShowLogin}/>
+            :
+            null
+         }
+         <Add handleCreate={handleCreate} user={user}/>
          <div className="guides">
             {guides.map((guide) => {
                return (
@@ -96,10 +104,10 @@ const App = () => {
          </div>
          <Footer />
       </div>
-      
-      
-      
-      
+
+
+
+
    )
 }
 

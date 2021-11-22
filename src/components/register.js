@@ -28,15 +28,22 @@ const Register = (props) => {
       })
    }
 
+   const closeRegister = () => {
+      props.setShowRegister(false)
+  }
+
    return(
       <>
          <div className='login'>
+            <div className='loginForm'>
             <h1>Create Account</h1>
-            <form onSubmit={handleSubmit}>
-               <input type="text" onChange={handleUserChange}/>
-               <input type="password" onChange={handlePasswordChange}/>
-               <input type="submit"/>
-            </form>
+               <form onSubmit={handleSubmit}>
+                  <input type="text" onChange={handleUserChange}/>
+                  <input type="password" onChange={handlePasswordChange}/>
+                  <input type="submit"/>
+               </form>
+               <button className="modalClose" onClick={closeRegister}>Back</button>
+            </div>
          </div>
       </>
    )

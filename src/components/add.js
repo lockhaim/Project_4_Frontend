@@ -25,12 +25,11 @@ const Add = (props) => {
         />
         <br />
         <br />
-        <label htmlFor="author">author_id : </label>
+        <h5 htmlFor="author">{props.user.id}</h5>
         <input
-          type="number"
+          type="hidden"
           name="author"
-          onChange={handleChange}
-          value={guide.author}
+          value={props.user.id}
         />
         <label htmlFor="main_power">likes: </label>
           <input
