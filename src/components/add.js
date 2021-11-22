@@ -29,7 +29,7 @@ const Add = (props) => {
         <input
           type="hidden"
           name="author"
-          value={guide.author}
+          value='test'
         />
         <label htmlFor="main_power">likes: </label>
         <input
