@@ -33,7 +33,12 @@ console.log(guide);
           type="hidden"
           name="author"
           onChange={handleChange}
+
           value={props.author_id}
+
+          placeholder={props.author_id}
+          value={props.user.author}
+
         />
         <label htmlFor="main_power">likes: </label>
           <input
