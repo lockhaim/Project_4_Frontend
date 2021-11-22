@@ -26,21 +26,20 @@ const Add = (props) => {
             />
             <br />
             <br />
-
             <input
                 type="hidden"
                 name="author"
                 onChange={handleChange}
                 value={props.user.id}
             />
-            <label htmlFor="main_power">likes: </label>
+            <label htmlFor="main_power">Likes: </label>
             <input
                 type="text"
                 name="likes"
                 onChange={handleChange}
                 value={guide.likes}
             />
-            <label htmlFor="content">content: </label>
+            <label htmlFor="content">Content: </label>
             <input
                 id="contentForm"
                 contentEditable
@@ -49,14 +48,14 @@ const Add = (props) => {
                 onChange={handleChange}
                 value={guide.content}
             />
-            <label htmlFor="image">image: </label>
+            <label htmlFor="image">Image: </label>
             <input
                 type="text"
                 name="image"
                 onChange={handleChange}
                 value={guide.image}
             />
-            <label htmlFor="rating">rating: </label>
+            <label htmlFor="rating">Rating: </label>
             <input
                 type="text"
                 name="rating"

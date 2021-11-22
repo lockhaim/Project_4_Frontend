@@ -8,10 +8,10 @@ const footer = () => {
             </div>
             <div className='our-links'>
                 <div className='flex-link'>
-                    <a className='footer-link' href='http://github.com/lockhaim' style={{color: 'black'}}>
+                    <a className='footer-link' href='https://github.com/lockhaim' style={{color: 'black'}}>
                         <i className="fab fa-github fa-2x"></i>
                     </a>
-                    <a className='footer-link' href='http://www.linkedin.com/in/ian-lockhart-/' style={{color: 'black'}}>
+                    <a className='footer-link' href='https://www.linkedin.com/in/ian-lockhart-/' style={{color: 'black'}}>
                         <i className="fab fa-linkedin fa-2x"></i>
                     </a>
                     <p>Ian Lockhart</p>
@@ -19,10 +19,10 @@ const footer = () => {
                 <br/>
                 <br/>
                 <div className='flex-link'>
-                    <a className='footer-link' href='http://github.com/gueronlj' style={{color: 'black'}}>
+                    <a className='footer-link' href='https://github.com/gueronlj' style={{color: 'black'}}>
                         <i className="fab fa-github fa-2x"></i>
                     </a>
-                    <a className='footer-link' href='http://www.linkedin.com/in/lorensgueron/' style={{color: 'black'}}>
+                    <a className='footer-link' href='https://www.linkedin.com/in/lorensgueron/' style={{color: 'black'}}>
                         <i className="fab fa-linkedin fa-2x"></i>
                     </a>
                     <p>Lorens Gueron</p>
@@ -30,10 +30,10 @@ const footer = () => {
                 <br/>
                 <br/>
                 <div className='flex-link'>
-                    <a className='footer-link' href='http://github.com/Zmonea' style={{color: 'black'}}>
+                    <a className='footer-link' href='https://github.com/Zmonea' style={{color: 'black'}}>
                         <i className="fab fa-github fa-2x"></i>
                     </a>
-                    <a className='footer-link' href='http://www.linkedin.com/in/zachary-monea' style={{color: 'black'}}>
+                    <a className='footer-link' href='https://www.linkedin.com/in/zachary-monea' style={{color: 'black'}}>
                         <i className="fab fa-linkedin fa-2x"></i>
                     </a>
                     <p>Zachary Monea</p>

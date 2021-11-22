@@ -18,7 +18,7 @@ const App = () => {
 
     const getGuides = () => {
         axios
-            .get('http://lazy-dev-project-backend.herokuapp.com/api/guides')
+            .get('https://lazy-dev-project-backend.herokuapp.com/api/guides')
             .then(
                 (response) => setGuides(response.data),
                 (err) => console.error(err)
@@ -32,7 +32,7 @@ const App = () => {
 
     const handleCreate = (addGuide) => {
         axios
-        .post('http://lazy-dev-project-backend.herokuapp.com/api/guides', addGuide)
+        .post('https://lazy-dev-project-backend.herokuapp.com/api/guides', addGuide)
         .then((response) => {
             console.log(response)
             getGuides()
@@ -40,7 +40,7 @@ const App = () => {
     }
     const handleDelete = (event) => {
         axios
-            .delete('http://lazy-dev-project-backend.herokuapp.com/api/guides/' + event.target.value)
+            .delete('https://lazy-dev-project-backend.herokuapp.com/api/guides/' + event.target.value)
             .then((response) => {
                 getGuides()
             })
@@ -49,7 +49,7 @@ const App = () => {
     const handleUpdate = (editGuide) => {
         console.log(editGuide)
         axios
-            .put('http://lazy-dev-project-backend.herokuapp.com/api/guides/' + editGuide.id, editGuide)
+            .put('https://lazy-dev-project-backend.herokuapp.com/api/guides/' + editGuide.id, editGuide)
             .then((response) => {
             getGuides()
         })
@@ -58,7 +58,7 @@ const App = () => {
     const handleLogout = () => {
         let userObject = user
         axios
-            .put('http://lazy-dev-project-backend.herokuapp.com/api/guides', userObject)
+            .put('https://lazy-dev-project-backend.herokuapp.com/api/guides', userObject)
             .then((response) => {
                 console.log(response.data);
             })
