@@ -14,6 +14,19 @@ const Login = (props) => {
        setPassword(event.target.value)
     }
 
+
+   const handleSubmit = (event) => {
+      event.preventDefault()
+      const userObject = {name: username, password:password, online: true}
+      axios
+      .put('http://localhost:8000/api/user/login', userObject)
+      .then((response) => {
+         props.setUser(response.data)
+         window.localStorage.setItem('user', response.data)
+         console.log(response.data);
+      })
+      closeLogin()
+
     const handleSubmit = (event) => {
         event.preventDefault()
         const userObject = {name: username, password:password, online: true}
@@ -24,16 +37,24 @@ const Login = (props) => {
                 window.localStorage.setItem('user', response.data)
                 console.log(response.data);
             })
+
    }
+
+   const closeLogin = () => {
+      props.setShowLogin(false)
+  }
 
    return(
       <div className='login'>
-         <h1>Login</h1>
-         <form onSubmit={handleSubmit}>
-            <input type="text" onChange={handleUserChange}/>
-            <input type="password" onChange={handlePasswordChange}/>
-            <input type="submit"/>
-         </form>
+         <div className='loginForm'>
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+               <input type="text" onChange={handleUserChange}/>
+               <input type="password" onChange={handlePasswordChange}/>
+               <input type="submit"/>
+            </form>
+            <button className="modalClose" onClick={closeLogin}>Back</button>
+         </div>
       </div>
    )
 }

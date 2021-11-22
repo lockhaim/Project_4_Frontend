@@ -13,8 +13,16 @@ import Register from './components/register.js'
 
 const App = () => {
 
+
+  let [guides, setGuides] = useState([])
+  const [user, setUser] = useState({name:'guest'})
+
+  const [ showLogin, setShowLogin ] = useState(false)
+  const [showRegister, setShowRegister ] = useState(false)
+
     let [guides, setGuides] = useState([])
     const [user, setUser] = useState({})
+
 
     const getGuides = () => {
         axios
@@ -53,6 +61,45 @@ const App = () => {
             .then((response) => {
             getGuides()
         })
+
+      setUser({name:'guest'})
+      window.localStorage.setItem('user', null)
+  }
+
+  const closeLogin = () => {
+      setShowLogin(false)
+  }
+
+   return (
+      <div className='main'>
+         <Header handleLogout={handleLogout} setShowLogin={setShowLogin} setShowRegister={setShowRegister} user={user}/>
+         {showRegister?
+            <Register setUser={setUser} setShowRegister={setShowRegister}/>
+            :
+            null
+         }
+         {showLogin?
+            <Login setUser={setUser} setShowLogin={setShowLogin}/>
+            :
+            null
+         }
+         <Add handleCreate={handleCreate} user={user}/>
+         <div className="guides">
+            {guides.map((guide) => {
+               return (
+                  <div className="guideOutline" key={guide.id}>
+                  <TutorialCard guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+                  </div>
+               )
+            })}
+         </div>
+         <Footer />
+      </div>
+
+
+
+
+
     }
 
     const handleLogout = () => {
@@ -84,6 +131,7 @@ const App = () => {
         </div>
         <Footer />
         </div>
+
    )
 }
 
