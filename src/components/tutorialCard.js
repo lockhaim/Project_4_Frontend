@@ -3,7 +3,7 @@ import Edit from './edit'
 
 
 const TutorialCard = (props) => {
-    const {guide, handleDelete, handleUpdate} = props;
+    const {user, guide, handleDelete, handleUpdate} = props;
     let emptyGuide = { name: '', author_id: '', likes:'', content:'', image: '', rating: '' }
 //   const [guide, setGuide] = useState(emptyGuide)
 
@@ -23,7 +23,7 @@ const TutorialCard = (props) => {
 
         {/* <img src={guide.image} /> */}
 
-        <Edit handleUpdate={handleUpdate} id={guide.id} name={guide.name} author_id={guide.author_id} likes={guide.likes} content={guide.content} image={guide.image} rating={guide.rating}/>
+        <Edit user={user} handleUpdate={handleUpdate} id={guide.id} name={guide.name} author_id={guide.author_id} likes={guide.likes} content={guide.content} image={guide.image} rating={guide.rating}/>
        <button id='sub-button3' onClick={handleDelete} value={guide.id}>
                 DELETE
               </button>

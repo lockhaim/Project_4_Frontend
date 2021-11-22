@@ -74,12 +74,12 @@ const App = () => {
       <div className='main'>
          <Header handleLogout={handleLogout}/>
          <Login setUser={setUser}/>
-         <Add handleCreate={handleCreate}/>
+         <Add user={user} handleCreate={handleCreate}/>
          <div className="guides">
             {guides.map((guide) => {
                return (
                   <div className="guideOutline" key={guide.id}>
-                  <TutorialCard guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+                  <TutorialCard user={user} guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
                   </div>
                )
             })}
