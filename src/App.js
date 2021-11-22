@@ -9,6 +9,7 @@ import './views/normalize.css'
 import './views/skeleton.css'
 import './views/styles.css'
 import Login from './components/login.js'
+import Register from './components/register.js'
 
 const App = () => {
 
@@ -17,7 +18,7 @@ const App = () => {
 
   const getGuides = () => {
     axios
-      .get('https://lazy-dev-project-backend.herokuapp.com/api/guides')
+      .get('http://localhost:8000/api/guides')
       // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then(
         (response) => setGuides(response.data),
@@ -32,7 +33,7 @@ const App = () => {
 
    const handleCreate = (addGuide) => {
     axios
-      .post('https://lazy-dev-project-backend.herokuapp.com/api/guides', addGuide)
+      .post('http://localhost:8000/api/guides', addGuide)
       // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then((response) => {
         console.log(response)
@@ -41,7 +42,7 @@ const App = () => {
   }
   const handleDelete = (event) => {
     axios
-      .delete('https://lazy-dev-project-backend.herokuapp.com/api/guides/' + event.target.value)
+      .delete('http://localhost:8000/api/guides/' + event.target.value)
       // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then((response) => {
         getGuides()
@@ -51,7 +52,7 @@ const App = () => {
   const handleUpdate = (editGuide) => {
     console.log(editGuide)
     axios
-      .put('https://lazy-dev-project-backend.herokuapp.com/api/guides/' + editGuide.id, editGuide)
+      .put('http://localhost:8000/api/guides/' + editGuide.id, editGuide)
       // https://lazy-dev-project-backend.herokuapp.com/api/guides
       .then((response) => {
         getGuides()
@@ -60,19 +61,21 @@ const App = () => {
 
   const handleLogout = () => {
      // userObject = window.localStorage.getItem('user')
-     let userObject = {name:'Lorens', password:'123', online:true}
+     let userObject = user
      axios
-        .put('https://lazy-dev-project-backend.herokuapp.com/api/user/login', userObject)
+        .put('http://localhost:8000/api/user/logout', userObject)
         .then((response) => {
-           setUser({})
-           window.localStorage.setItem('user', null)
+
            console.log(response.data);
         })
+      setUser({})
+      window.localStorage.setItem('user', null)
   }
 
    return (
       <div className='main'>
          <Header handleLogout={handleLogout}/>
+         <Register setUser={setUser}/>
          <Login setUser={setUser}/>
          <Add user={user} handleCreate={handleCreate}/>
          <div className="guides">

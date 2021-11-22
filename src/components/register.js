@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Login = (props) => {
+const Register = (props) => {
+
    const [ username, setUsername ] = useState('')
    const [password, setPassword ] = useState('')
 
@@ -18,8 +19,9 @@ const Login = (props) => {
       event.preventDefault()
       const userObject = {name: username, password:password, online: true}
       axios
-      .put('http://localhost:8000/api/user/login', userObject)
+      .post('http://localhost:8000/api/user/register', userObject)
       .then((response) => {
+         //We want to log the user in after they sign up.
          props.setUser(response.data)
          window.localStorage.setItem('user', response.data)
          console.log(response.data);
@@ -27,15 +29,17 @@ const Login = (props) => {
    }
 
    return(
-      <div className='login'>
-         <h1>Login</h1>
-         <form onSubmit={handleSubmit}>
-            <input type="text" onChange={handleUserChange}/>
-            <input type="password" onChange={handlePasswordChange}/>
-            <input type="submit"/>
-         </form>
-      </div>
+      <>
+         <div className='login'>
+            <h1>Create Account</h1>
+            <form onSubmit={handleSubmit}>
+               <input type="text" onChange={handleUserChange}/>
+               <input type="password" onChange={handlePasswordChange}/>
+               <input type="submit"/>
+            </form>
+         </div>
+      </>
    )
 }
 
-export default Login
+export default Register

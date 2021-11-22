@@ -5,14 +5,14 @@ import Edit from './edit'
 const TutorialCard = (props) => {
     const {user, guide, handleDelete, handleUpdate} = props;
     let emptyGuide = { name: '', author_id: '', likes:'', content:'', image: '', rating: '' }
-//   const [guide, setGuide] = useState(emptyGuide)
+    //const [guide, setGuide] = useState(emptyGuide)
 
 
     return(
         <div className="guide" key={guide.id}>
 
         <h4>Name: {guide.name}</h4>
-        <h5>author_id: {guide.author_id}</h5>
+        <h5>author_id: {guide.author}</h5>
         <h5>likes: {guide.likes}</h5>
         <h5>content: {guide.content}</h5>
 
