@@ -3,8 +3,8 @@ const footer = () => {
       <div>
         <div className='footer-flex-container'>
             <div className='project-techs'>
-                <i style={{color: 'black'}} class="fab fa-python fa-2x"></i>
-                <i style={{color: 'black'}} class="fab fa-react fa-2x"></i>
+                <i style={{color: 'black'}} className="fab fa-python fa-2x"></i>
+                <i style={{color: 'black'}} className="fab fa-react fa-2x"></i>
             </div>
             <div className='our-links'>
                 <div className='flex-link'>
