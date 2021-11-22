@@ -38,6 +38,9 @@ const App = () => {
         console.log(response)
         getGuides()
       })
+      .catch( (error) => {
+          console.error(error)
+      })
   }
   const handleDelete = (event) => {
     axios
