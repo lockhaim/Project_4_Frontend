@@ -21,22 +21,31 @@ const Register = (props) => {
       axios
       .post('http://localhost:8000/api/user/register', userObject)
       .then((response) => {
+
          //We want to log the user in after they sign up.
+         console.log(response.data);
+
          props.setUser(response.data)
          window.localStorage.setItem('user', response.data)
-         console.log(response.data);
       })
    }
+
+   const closeRegister = () => {
+      props.setShowRegister(false)
+  }
 
    return(
       <>
          <div className='login'>
+            <div className='loginForm'>
             <h1>Create Account</h1>
-            <form onSubmit={handleSubmit}>
-               <input type="text" onChange={handleUserChange}/>
-               <input type="password" onChange={handlePasswordChange}/>
-               <input type="submit"/>
-            </form>
+               <form onSubmit={handleSubmit}>
+                  <input type="text" onChange={handleUserChange}/>
+                  <input type="password" onChange={handlePasswordChange}/>
+                  <input type="submit"/>
+               </form>
+               <button className="modalClose" onClick={closeRegister}>Back</button>
+            </div>
          </div>
       </>
    )

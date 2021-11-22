@@ -23,9 +23,8 @@ console.log(guide);
         <input
           type="text"
           name="name"
-          placeholder={props.name}
-          onChange={handleChange}
           value={guide.name}
+          onChange={handleChange}
         />
         <br />
         <br />
@@ -34,23 +33,25 @@ console.log(guide);
           type="hidden"
           name="author"
           onChange={handleChange}
+
+          value={props.author_id}
+
           placeholder={props.author_id}
           value={props.user.author}
+
         />
         <label htmlFor="main_power">likes: </label>
           <input
             type="text"
             name="likes"
-            placeholder={props.likes}
-            onChange={handleChange}
             value={guide.likes}
+            onChange={handleChange}
           />
           <label htmlFor="content">content: </label>
           <input
             type="text"
             name="content"
             onChange={handleChange}
-            placeholder={props.content}
             value={guide.content}
           />
           <label htmlFor="image">image: </label>
@@ -58,7 +59,6 @@ console.log(guide);
             type="text"
             name="image"
             onChange={handleChange}
-            placeholder={props.image}
             value={guide.image}
           />
           <label htmlFor="rating">rating: </label>
@@ -66,7 +66,6 @@ console.log(guide);
             type="text"
             name="rating"
             onChange={handleChange}
-            placeholder={props.rating}
             value={guide.rating}
           />
 

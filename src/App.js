@@ -10,31 +10,30 @@ import './views/skeleton.css'
 import './views/styles.css'
 import Login from './components/login.js'
 import Register from './components/register.js'
-
+const url = 'http://localhost:8000/api/guides';
+//const url = 'https://lazy-dev-project-backend.herokuapp.com/api/guides';
 const App = () => {
-
   let [guides, setGuides] = useState([])
-  const [user, setUser] = useState({})
+  
+  const [user, setUser] = useState({ name: 'guest' })
+  const [showLogin, setShowLogin] = useState(false)
+  const [showRegister, setShowRegister] = useState(false)
 
   const getGuides = () => {
     axios
-      .get('http://localhost:8000/api/guides')
-      // https://lazy-dev-project-backend.herokuapp.com/api/guides
+      .get(url)
       .then(
         (response) => setGuides(response.data),
         (err) => console.error(err)
       )
       .catch((error) => console.error(error))
-   }
-
-   useEffect(() => {
+  }
+  useEffect(() => {
     getGuides()
-   }, [])
-
-   const handleCreate = (addGuide) => {
+  }, [])
+  const handleCreate = (addGuide) => {
     axios
-      .post('http://localhost:8000/api/guides', addGuide)
-      // https://lazy-dev-project-backend.herokuapp.com/api/guides
+      .post(url, addGuide)
       .then((response) => {
         console.log(response)
         getGuides()
@@ -42,58 +41,95 @@ const App = () => {
   }
   const handleDelete = (event) => {
     axios
-      .delete('http://localhost:8000/api/guides/' + event.target.value)
-      // https://lazy-dev-project-backend.herokuapp.com/api/guides
+      .delete(url + '/' + event.target.value)
       .then((response) => {
         getGuides()
       })
   }
-
   const handleUpdate = (editGuide) => {
     console.log(editGuide)
     axios
-      .put('http://localhost:8000/api/guides/' + editGuide.id, editGuide)
-      // https://lazy-dev-project-backend.herokuapp.com/api/guides
+      .put(url + '/' + editGuide.id, editGuide)
       .then((response) => {
         getGuides()
       })
+    setUser({ name: 'guest' })
+    window.localStorage.setItem('user', null)
   }
-
   const handleLogout = () => {
-     // userObject = window.localStorage.getItem('user')
-     let userObject = user
-     axios
-        .put('http://localhost:8000/api/guides', userObject)
-        .then((response) => {
-
-           console.log(response.data);
-        })
-      setUser({})
-      window.localStorage.setItem('user', null)
+    let userObject = user
+    axios
+      .put(url, userObject)
+      .then((response) => {
+        console.log(response.data);
+      })
+    setUser({})
+    window.localStorage.setItem('user', null)
   }
-  console.log(guides);
-   return (
-      <div className='main'>
-         <Header handleLogout={handleLogout}/>
-         <Register setUser={setUser}/>
-         <Login setUser={setUser}/>
-         <Add guides={guides} author={guides.author} user={user} handleCreate={handleCreate}/>
-         <div className="guides">
-            {guides.map((guide) => {
-               return (
-                  <div className="guideOutline" key={guide.id}>
-                  <TutorialCard user={user} guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
-                  </div>
-               )
-            })}
-         </div>
-         <Footer />
+  return (
+    <div className='main'>
+      <Header handleLogout={handleLogout} setShowLogin={setShowLogin} setShowRegister={setShowRegister} user={user} />
+      {showRegister ?
+        <Register setUser={setUser} setShowRegister={setShowRegister} />
+        :
+        null
+      }
+      {showLogin ?
+        <Login setUser={setUser} setShowLogin={setShowLogin} />
+        :
+        null
+      }
+      <Add handleCreate={handleCreate} user={user} />
+      <div className="guides">
+        {guides.map((guide) => {
+          return (
+            <div className="guideOutline" key={guide.id}>
+              <TutorialCard guide={guide} user={user} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+            </div>
+          )
+        })}
       </div>
-      
-      
-      
-      
-   )
+      <Footer />
+    </div>
+  )
 }
-
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
