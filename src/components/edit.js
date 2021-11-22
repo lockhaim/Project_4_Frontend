@@ -34,7 +34,7 @@ console.log(guide);
           name="author"
           onChange={handleChange}
           placeholder={props.author_id}
-          value='test'
+          value={guide.author}
 
         />
         <label htmlFor="main_power">likes: </label>
