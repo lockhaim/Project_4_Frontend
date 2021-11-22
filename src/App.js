@@ -13,86 +13,77 @@ import Register from './components/register.js'
 
 const App = () => {
 
-  let [guides, setGuides] = useState([])
-  const [user, setUser] = useState({})
+    let [guides, setGuides] = useState([])
+    const [user, setUser] = useState({})
 
-  const getGuides = () => {
-    axios
-      .get('https://lazy-dev-project-backend.herokuapp.com/api/guides')
-      // https://lazy-dev-project-backend.herokuapp.com/api/guides
-      .then(
-        (response) => setGuides(response.data),
-        (err) => console.error(err)
-      )
-      .catch((error) => console.error(error))
+    const getGuides = () => {
+        axios
+            .get('https://lazy-dev-project-backend.herokuapp.com/api/guides')
+            .then(
+                (response) => setGuides(response.data),
+                (err) => console.error(err)
+            )
+            .catch((error) => console.error(error))
    }
 
-   useEffect(() => {
-    getGuides()
-   }, [])
-
-   const handleCreate = (addGuide) => {
-    axios
-      .post('https://lazy-dev-project-backend.herokuapp.com/api/guides', addGuide)
-      // https://lazy-dev-project-backend.herokuapp.com/api/guides
-      .then((response) => {
-        console.log(response)
+    useEffect(() => {
         getGuides()
-      })
-  }
-  const handleDelete = (event) => {
-    axios
-      .delete('https://lazy-dev-project-backend.herokuapp.com/api/guides/' + event.target.value)
-      // https://lazy-dev-project-backend.herokuapp.com/api/guides
-      .then((response) => {
-        getGuides()
-      })
-  }
+    }, [])
 
-  const handleUpdate = (editGuide) => {
-    console.log(editGuide)
-    axios
-      .put('https://lazy-dev-project-backend.herokuapp.com/api/guides/' + editGuide.id, editGuide)
-      // https://lazy-dev-project-backend.herokuapp.com/api/guides
-      .then((response) => {
-        getGuides()
-      })
-  }
-
-  const handleLogout = () => {
-     // userObject = window.localStorage.getItem('user')
-     let userObject = user
-     axios
-        .put('https://lazy-dev-project-backend.herokuapp.com/api/guides', userObject)
+    const handleCreate = (addGuide) => {
+        axios
+        .post('https://lazy-dev-project-backend.herokuapp.com/api/guides', addGuide)
         .then((response) => {
-
-           console.log(response.data);
+            console.log(response)
+            getGuides()
         })
-      setUser({})
-      window.localStorage.setItem('user', null)
-  }
-  console.log(guides);
-   return (
-      <div className='main'>
-         <Header handleLogout={handleLogout}/>
-         <Register setUser={setUser}/>
-         <Login setUser={setUser}/>
-         <Add guides={guides} author={guides.author} user={user} handleCreate={handleCreate}/>
-         <div className="guides">
-            {guides.map((guide) => {
-               return (
-                  <div className="guideOutline" key={guide.id}>
-                  <TutorialCard user={user} guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
-                  </div>
-               )
+    }
+    const handleDelete = (event) => {
+        axios
+            .delete('https://lazy-dev-project-backend.herokuapp.com/api/guides/' + event.target.value)
+            .then((response) => {
+                getGuides()
+            })
+        }
+
+    const handleUpdate = (editGuide) => {
+        console.log(editGuide)
+        axios
+            .put('https://lazy-dev-project-backend.herokuapp.com/api/guides/' + editGuide.id, editGuide)
+            .then((response) => {
+            getGuides()
+        })
+    }
+
+    const handleLogout = () => {
+        let userObject = user
+        axios
+            .put('https://lazy-dev-project-backend.herokuapp.com/api/guides', userObject)
+            .then((response) => {
+                console.log(response.data);
+            })
+        setUser({})
+        window.localStorage.setItem('user', null)
+    }
+
+    console.log(guides);
+    return (
+        <div className='main'>
+            <Header handleLogout={handleLogout}/>
+            <Register setUser={setUser}/>
+            <Login setUser={setUser}/>
+            <Add guides={guides} author={guides.author} user={user} handleCreate={handleCreate}/>
+            <div className="guides">
+                {guides.map((guide) => {
+                    return (
+                        <div className="guideOutline" key={guide.id}>
+                        <TutorialCard user={user} guide={guide} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+                        </div>
+                    )
             })}
-         </div>
-         <Footer />
-      </div>
-      
-      
-      
-      
+        </div>
+        <Footer />
+        </div>
    )
 }
 

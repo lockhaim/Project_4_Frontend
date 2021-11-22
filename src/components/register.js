@@ -21,7 +21,6 @@ const Register = (props) => {
       axios
       .post('https://lazy-dev-project-backend.herokuapp.com/api/user/register', userObject)
       .then((response) => {
-         //We want to log the user in after they sign up.
          props.setUser(response.data)
          window.localStorage.setItem('user', response.data)
          console.log(response.data);
