@@ -71,13 +71,13 @@ const App = () => {
       setUser({})
       window.localStorage.setItem('user', null)
   }
-
+  console.log(guides);
    return (
       <div className='main'>
          <Header handleLogout={handleLogout}/>
          <Register setUser={setUser}/>
          <Login setUser={setUser}/>
-         <Add user={user} handleCreate={handleCreate}/>
+         <Add guides={guides} author={guides.author} user={user} handleCreate={handleCreate}/>
          <div className="guides">
             {guides.map((guide) => {
                return (
