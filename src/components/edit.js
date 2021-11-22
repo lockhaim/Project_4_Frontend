@@ -5,7 +5,7 @@ const Edit = (props) => {
   const [guide, setGuide] = useState(emptyGuide)
 
   const handleChange = (event) => {
-    setGuide({ ...guide, [event.target.name]: event.target.value })
+    setGuide({ ...guide,  author:props.user.id, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = (event) => {
@@ -34,10 +34,9 @@ console.log(guide);
           name="author"
           onChange={handleChange}
 
-          value={props.author_id}
 
           placeholder={props.author_id}
-          value={props.user.author}
+          value={guide.author}
 
         />
         <label htmlFor="main_power">likes: </label>

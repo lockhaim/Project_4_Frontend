@@ -10,8 +10,8 @@ import './views/skeleton.css'
 import './views/styles.css'
 import Login from './components/login.js'
 import Register from './components/register.js'
-const url = 'http://localhost:8000/api/guides';
-//const url = 'https://lazy-dev-project-backend.herokuapp.com/api/guides';
+// const url = 'http://localhost:8000/api/guides';
+const url = 'https://lazy-dev-project-backend.herokuapp.com/api/guides';
 const App = () => {
   let [guides, setGuides] = useState([])
   
@@ -63,7 +63,7 @@ const App = () => {
       .then((response) => {
         console.log(response.data);
       })
-    setUser({})
+    setUser({name:'guest'})
     window.localStorage.setItem('user', null)
   }
   return (
