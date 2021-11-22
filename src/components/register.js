@@ -22,9 +22,9 @@ const Register = (props) => {
       .post('http://localhost:8000/api/user/register', userObject)
       .then((response) => {
          //We want to log the user in after they sign up.
+         console.log(response.data);
          props.setUser(response.data)
          window.localStorage.setItem('user', response.data)
-         console.log(response.data);
       })
    }
 

@@ -16,6 +16,9 @@ const App = () => {
   let [guides, setGuides] = useState([])
   const [user, setUser] = useState({})
 
+  const [ showLogin, setShowLogin ] = useState(False)
+  const [showRegister, setShowRegister ] = useState(False)
+
   const getGuides = () => {
     axios
       .get('http://localhost:8000/api/guides')
@@ -72,11 +75,15 @@ const App = () => {
       window.localStorage.setItem('user', null)
   }
 
+  const closeLogin = () => {
+      setShowLogin(false)
+  }
+
    return (
       <div className='main'>
          <Header handleLogout={handleLogout}/>
          <Register setUser={setUser}/>
-         <Login setUser={setUser}/>
+         <Login setUser={setUser} setShowLogin={setShowLogin}/>
          <Add handleCreate={handleCreate}/>
          <div className="people">
             {guides.map((guide) => {
