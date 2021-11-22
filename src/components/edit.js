@@ -13,7 +13,7 @@ const Edit = (props) => {
     props.handleUpdate(guide)
     setGuide({ name: '', author: '', likes:'', content:'', image: '', rating: '' })
   }
-
+console.log(guide);
   return (
     <>
       <details>
@@ -23,22 +23,25 @@ const Edit = (props) => {
         <input
           type="text"
           name="name"
+          placeholder={props.name}
           onChange={handleChange}
           value={guide.name}
         />
         <br />
         <br />
-        <label htmlFor="author">author_id : </label>
+        {/* <label htmlFor="author">author_id : </label> */}
         <input
-          type="number"
+          type="hidden"
           name="author"
           onChange={handleChange}
+          placeholder={props.author_id}
           value={guide.author}
         />
         <label htmlFor="main_power">likes: </label>
           <input
             type="text"
             name="likes"
+            placeholder={props.likes}
             onChange={handleChange}
             value={guide.likes}
           />
@@ -47,6 +50,7 @@ const Edit = (props) => {
             type="text"
             name="content"
             onChange={handleChange}
+            placeholder={props.content}
             value={guide.content}
           />
           <label htmlFor="image">image: </label>
@@ -54,6 +58,7 @@ const Edit = (props) => {
             type="text"
             name="image"
             onChange={handleChange}
+            placeholder={props.image}
             value={guide.image}
           />
           <label htmlFor="rating">rating: </label>
@@ -61,6 +66,7 @@ const Edit = (props) => {
             type="text"
             name="rating"
             onChange={handleChange}
+            placeholder={props.rating}
             value={guide.rating}
           />
 
